@@ -7,14 +7,18 @@ if (WEBPACK_ENV === 'production') {
 import 'rxjs/Rx';
 
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { ROUTER_PROVIDERS } from '@angular/router';
+import { provideRouter } from '@angular/router';
+import { provideForms, disableDeprecatedForms } from '@angular/forms';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 import { AppComponent } from './app/app.component';
+import { AppRoutes } from './app/app.routes';
 import { OffersService } from './app/offers/offers.service';
 
 bootstrap(AppComponent, [
-  ROUTER_PROVIDERS,
+  provideRouter(AppRoutes),
+  disableDeprecatedForms(),
+  provideForms(),
   HTTP_PROVIDERS,
   OffersService
 ]);

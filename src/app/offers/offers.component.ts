@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { OffersService } from './offers.service';
 import {
-  Control,
-  FormBuilder,
-  ControlGroup,
+  REACTIVE_FORM_DIRECTIVES,
+  FormGroup,
+  FormControl,
   Validators
-} from '@angular/common';
+} from '@angular/forms';
 
 export interface IComment {
   body: string;
@@ -22,11 +22,12 @@ interface IOffer {
 
 @Component({
   selector: 'offers',
+  directives: REACTIVE_FORM_DIRECTIVES,
   template: `
     <div class="row">
       <div class="col-sm-6">
         <form
-          [ngFormModel]="searchForm"
+          [formGroup]="searchForm"
           (ngSubmit)="onSearch(searchForm.value)"
           novalidate
         >
@@ -36,7 +37,7 @@ interface IOffer {
               id="url" 
               class="form-control" 
               placeholder="Url"
-              ngControl="url"
+              formControlName="url"
             >
             <button class="btn btn-primary">Search</button>
           </fieldset>
@@ -47,23 +48,23 @@ interface IOffer {
         <div *ngFor="let comment of offer.comments">
           <blockquote class="blockquote">
             <p class="m-b-0">{{ comment.body }}</p>
-            <footer class="blockquote-footer">{{ comment.author }} - <cite>{{ comment.date }}</cite></footer>
+            <footer class="blockquote-footer">{{ comment.author }} - <cite>{{ comment.date | date:'medium' }}</cite></footer>
           </blockquote>
         </div>
         <form
-          [ngFormModel]="addCommentForm"
+          [formGroup]="addCommentForm"
           (ngSubmit)="onAddComment(addCommentForm.value)"
           novalidate
         >
           <textarea  
             class="form-control" 
             placeholder="Comment"
-            ngControl="body"
+            formControlName="body"
           ></textarea>
           <input  
             class="form-control" 
             placeholder="Author"
-            ngControl="author"
+            formControlName="author"
           >      
           <button class="btn">Add Comment</button>
         </form>
@@ -73,20 +74,17 @@ interface IOffer {
 })
 export class OffersComponent {
   public offer: IOffer;
-  public searchForm: ControlGroup;
-  public addCommentForm: ControlGroup;
+  public searchForm: FormGroup;
+  public addCommentForm: FormGroup;
 
-  constructor(
-    private offersService: OffersService,
-    private fb: FormBuilder
-  ) {
-    this.searchForm = fb.group({
-      url: ['', Validators.required]
+  constructor(private offersService: OffersService) {
+    this.searchForm = new FormGroup({
+      url: new FormControl('', Validators.required)
     });
 
-    this.addCommentForm = fb.group({
-      body: ['', Validators.required],
-      author: ['', Validators.required]
+    this.addCommentForm = new FormGroup({
+      body: new FormControl('', Validators.required),
+      author: new FormControl('', Validators.required)
     });
   }
 
@@ -100,8 +98,8 @@ export class OffersComponent {
     newComment.date = new Date();
     this.offer.comments.push(newComment);
     this.offersService.saveComment(this.offer._id, newComment).subscribe(response => {
-      (<Control>this.addCommentForm.controls['body']).updateValue('');
-      (<Control>this.addCommentForm.controls['author']).updateValue('');
+      (<FormControl>this.addCommentForm.controls['body']).updateValue('');
+      (<FormControl>this.addCommentForm.controls['author']).updateValue('');
     });
   }
 }
