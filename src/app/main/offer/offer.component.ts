@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OffersService } from '../../shared/services/offers.service'
 import {
@@ -51,27 +51,39 @@ import { IOffer } from '../../shared/interfaces/offer.interface';
     </div>
   `
 })
-export class OfferComponent {
+export class OfferComponent implements OnDestroy {
   public offer: IOffer;
   public addCommentForm: FormGroup;
+
+  private routerUrlSubscribe: any;
+  private routerParamsSubscribe: any;
 
   constructor(
     private offersService: OffersService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.offer = offersService.currentOffer;
 
-    activatedRoute.params
-      .map(r => {
-        console.log(r['id']);
 
-        return r['id'];
-      });
+    this.routerUrlSubscribe = this.activatedRoute.url.subscribe(() => {
+      this.offer = offersService.currentOffer;
+    });
+
+    this.routerParamsSubscribe = this.activatedRoute.params.subscribe(params => {
+      if (!offersService.currentOffer) {
+        const id = params['id'];
+        this.offersService.getOfferById(id).subscribe(offer => this.offer = offer);
+      }
+    });
 
     this.addCommentForm = new FormGroup({
       body: new FormControl('', Validators.required),
       author: new FormControl('', Validators.required)
     });
+  }
+
+  ngOnDestroy() {
+    this.routerUrlSubscribe.unsubscribe();
+    this.routerParamsSubscribe.unsubscribe();
   }
 
   public onAddComment(newComment: IComment): void {
