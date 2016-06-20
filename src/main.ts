@@ -13,7 +13,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 
 import { AppComponent } from './app/app.component';
 import { AppRoutes } from './app/app.routes';
-import { OffersService } from './app/offers/offers.service';
+import { OffersService } from './app/shared/services/offers.service';
 
 bootstrap(AppComponent, [
   provideRouter(AppRoutes),
