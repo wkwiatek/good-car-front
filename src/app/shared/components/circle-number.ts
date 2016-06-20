@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   `,
   styles: [`
     .circle {
-      background: #5178D0;
+      background: #1e88e5;
       border-radius: 0.8em;
       -moz-border-radius: 0.8em;
       -webkit-border-radius: 0.8em;
