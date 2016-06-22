@@ -36,16 +36,16 @@ import { IOffer } from '../../shared/interfaces/offer.interface';
         >
           <textarea  
             class="form-control m-b-1" 
-            placeholder="Comment"
+            placeholder="Komentarz"
             formControlName="body"
             rows="4"
           ></textarea>
           <input  
             class="form-control m-b-1" 
-            placeholder="Author"
+            placeholder="Autor"
             formControlName="author"
           >      
-          <button class="btn btn-info m-t-1">Add Comment</button>
+          <button class="btn btn-info m-t-1">Dodaj komentarz</button>
         </form>
       </div>
     </div>

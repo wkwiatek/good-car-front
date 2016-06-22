@@ -21,7 +21,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     @import url(https://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
     
     .navbar {
-      padding: 0 50px;
+      padding: 0 3rem;
     }
     .logo {
       height: 50px;

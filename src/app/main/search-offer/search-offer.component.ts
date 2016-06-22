@@ -27,11 +27,11 @@ import { IOffer } from '../../shared/interfaces/offer.interface';
               <input
                 id="url" 
                 class="form-control" 
-                placeholder="Paste url here..."
+                placeholder="Wklej adres url ogłoszenia..."
                 formControlName="url"
               >
               <span class="input-group-btn">
-                <button class="btn btn-primary">Go!</button>
+                <button class="btn btn-primary">Szukaj</button>
               </span>
             </div>
           </fieldset>
