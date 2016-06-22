@@ -11,7 +11,7 @@ import { IComment } from '../../shared/interfaces/comment.interface';
 import { IOffer } from '../../shared/interfaces/offer.interface';
 
 @Component({
-  selector: 'offers',
+  selector: 'gc-offers',
   directives: [
     REACTIVE_FORM_DIRECTIVES
   ],

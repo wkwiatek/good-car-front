@@ -1,5 +1,5 @@
 {
-  "name": "angular2-webpack",
+  "name": "good-car-front",
   "version": "1.0.0",
   "description": "Angular 2",
   "main": "index.js",
@@ -25,7 +25,7 @@
     "@angular/http": "^2.0.0-rc.1",
     "@angular/platform-browser": "^2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
-    "@angular/router": "3.0.0-alpha.6",
+    "@angular/router": "3.0.0-alpha.7",
     "es6-shim": "^0.35.0",
     "reflect-metadata": "^0.1.2",
     "rxjs": "5.0.0-beta.6",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
-    "codelyzer": "0.0.19",
+    "codelyzer": "0.0.23",
     "copy-webpack-plugin": "^3.0.0",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.4",
@@ -55,7 +55,7 @@
     "tslint-loader": "^2.1.4",
     "typescript": "^1.7.3",
     "typings": "^1.0.0",
-    "webpack": "2.1.0-beta.5",
+    "webpack": "^2.1.0-beta.0",
     "webpack-dev-server": "^2.1.0-beta.0"
   }
 }

@@ -5,11 +5,11 @@ import { ContentComponent } from './main/content/content.component';
 
 export const AppRoutes: RouterConfig = [
   {
-    index: true,
+    path: '',
     component: MainComponent,
     children: [
-      { path: '/', component: ContentComponent },
-      { path: '/offer/:id', component: OfferComponent}
+      { path: '', component: ContentComponent },
+      { path: 'offer/:id', component: OfferComponent}
     ]
   }
 ];

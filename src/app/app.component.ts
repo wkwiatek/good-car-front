@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 
 @Component({
-  selector: 'app',
+  selector: 'gc-app',
   template: `
     <gc-nav></gc-nav>
     <div class="container m-t-3">
