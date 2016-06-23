@@ -55,6 +55,7 @@ export class SearchOfferComponent {
   public onSearch({ url }): void {
     this.offersService.getOfferForUrl(url).subscribe(response => {
       this.offersService.currentOffer = response;
+      (<FormControl>this.searchForm.controls['url']).updateValue('');
       this.router.navigate(['/offer', response._id]);
     });
   }

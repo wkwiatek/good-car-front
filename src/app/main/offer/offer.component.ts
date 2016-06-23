@@ -15,7 +15,18 @@ import { IOffer } from '../../shared/interfaces/offer.interface';
   directives: [
     REACTIVE_FORM_DIRECTIVES
   ],
-  template: `      
+  template: `
+    <div class="row">
+      <div class="col-sm-12 text-xs-center m-b-1">
+        <a 
+          [href]="offer?.url"
+          class="btn btn-primary-outline btn-link"
+          target="_blank"
+        >
+          {{ offer?.url }}
+        </a>
+      </div> 
+    </div>
     <div class="row">
       <div class="col-sm-6">
         <img [src]="offer?.imgUrl" class="img-fluid img-thumbnail">

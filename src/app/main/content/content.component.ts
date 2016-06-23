@@ -29,7 +29,7 @@ import { CircleNumberComponent } from '../../shared/components/circle-number';
         <h2 class="card-text m-b-2">
           <circle-number [number]="3"></circle-number>
         </h2>
-        <h4 class="card-title">Zobacz dyskusję</h4>
+        <h4 class="card-title">Dołącz do dyskusji</h4>
       </div>
     </div>
     </div>
