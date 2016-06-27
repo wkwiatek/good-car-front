@@ -14,6 +14,7 @@ import { CircleNumberComponent } from '../../shared/components/circle-number';
           <circle-number [number]="1"></circle-number>
         </h2>
         <h4 class="card-title">Znajdź ogłoszenie</h4>
+        <p>Przeszukaj serwisy ogłoszeniowe i znajdź wymarzone auto</p>
       </div>
     </div>
     <div class="col-sm-4">
@@ -22,6 +23,7 @@ import { CircleNumberComponent } from '../../shared/components/circle-number';
           <circle-number [number]="2"></circle-number>
         </h2>
         <h4 class="card-title">Wklej link</h4>
+        <p>Skopiuj adres url z górnego paska przeglądarki i wklej powyżej</p>
       </div>
     </div>
     <div class="col-sm-4">
@@ -30,6 +32,7 @@ import { CircleNumberComponent } from '../../shared/components/circle-number';
           <circle-number [number]="3"></circle-number>
         </h2>
         <h4 class="card-title">Dołącz do dyskusji</h4>
+        <p>Wymień się opiniami z innymi, którzy oglądali bądź chcą obejrzeć samochód</p>
       </div>
     </div>
     </div>

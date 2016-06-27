@@ -9,8 +9,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
       <nav class="navbar navbar-light bg-faded navbar-fixed-top">
         <a class="navbar-brand" [routerLink]="['/']">
           <img class="logo" src="../images/logo.png" alt="Pewne Auto">
-          <span class="name">PewnaBryka.pl</span>
-          <!--<span class="name">SprawdzamFurę.pl</span>-->
+          <span class="name">PewnyWóz.pl</span>
           <span class="beta">beta</span>
         </a>
       </nav>
@@ -41,8 +40,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
       font-family: 'Nothing You Could Do', cursive;
       color: #1e88e5;
       float: left;
-      left: 126px;
-      position: relative;
+      left: 225px;
+      position: absolute;
     }
   `]
 })

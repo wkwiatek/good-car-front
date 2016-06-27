@@ -1,5 +1,5 @@
-import {Component, OnDestroy} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OffersService } from '../../shared/services/offers.service'
 import {
   REACTIVE_FORM_DIRECTIVES,
@@ -27,7 +27,7 @@ import { IOffer } from '../../shared/interfaces/offer.interface';
         </a>
       </div> 
     </div>
-    <div class="row">
+    <div class="row m-b-2">
       <div class="col-sm-6">
         <img [src]="offer?.imgUrl" class="img-fluid img-thumbnail">
       </div>
@@ -70,6 +70,7 @@ export class OfferComponent implements OnDestroy {
   private routerParamsSubscribe: any;
 
   constructor(
+    private router: Router,
     private offersService: OffersService,
     private activatedRoute: ActivatedRoute
   ) {
@@ -82,7 +83,10 @@ export class OfferComponent implements OnDestroy {
     this.routerParamsSubscribe = this.activatedRoute.params.subscribe(params => {
       if (!offersService.currentOffer) {
         const id = params['id'];
-        this.offersService.getOfferById(id).subscribe(offer => this.offer = offer);
+        this.offersService.getOfferById(id).subscribe(
+          offer => this.offer = offer, 
+          () => this.router.navigate(['/'])
+        );
       }
     });
 
