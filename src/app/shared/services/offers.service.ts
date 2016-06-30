@@ -15,7 +15,7 @@ export class OffersService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http
-      .post('http://localhost:3333/offers/check', body, options)
+      .post(`${API_URL}/offers/check`, body, options)
       .map(request => request.json());
   }
 
@@ -24,7 +24,7 @@ export class OffersService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http
-      .get(`http://localhost:3333/offers/${id}`, options)
+      .get(`${API_URL}/offers/${id}`, options)
       .map(request => request.json());
   }
 
@@ -34,7 +34,7 @@ export class OffersService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http
-      .post(`http://localhost:3333/offers/${offerId}/comments`, body, options)
+      .post(`${API_URL}/offers/${offerId}/comments`, body, options)
       .map(request => request.json());
   }
 }

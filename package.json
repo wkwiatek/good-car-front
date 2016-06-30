@@ -1,9 +1,10 @@
 {
   "name": "good-car-front",
   "version": "1.0.0",
-  "description": "Angular 2",
+  "description": "Good Car Front",
   "main": "index.js",
   "scripts": {
+    "deploy": "npm run build && ./deploy.sh",
     "build": "WEBPACK_ENV=production webpack --progress --hide-modules",
     "dev": "webpack-dev-server --history-api-fallback --content-base ./src --open",
     "e2e": "protractor",
@@ -13,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wkwiatek/angular2-webpack"
+    "url": "https://github.com/wkwiatek/good-car-front"
   },
   "author": "wkwiatek <wojtek.kwiatek@gmail.com>",
   "license": "SEE LICENSE IN LICENSE",

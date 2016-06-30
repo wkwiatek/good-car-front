@@ -7,7 +7,6 @@ import {
   Validators
 } from '@angular/forms';
 import { OffersService } from '../../shared/services/offers.service';
-import { IOffer } from '../../shared/interfaces/offer.interface';
 
 @Component({
   selector: 'gc-search-offer',

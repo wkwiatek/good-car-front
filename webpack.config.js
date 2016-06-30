@@ -36,7 +36,8 @@ if (!(process.env.WEBPACK_ENV === 'production')) {
   config.devtool = 'source-map';
   config.plugins = [
     new webpack.DefinePlugin({
-      'WEBPACK_ENV': '"dev"'
+      'WEBPACK_ENV': '"dev"',
+      'API_URL': '"http://localhost:3333"'
     })
   ]
 } else {
@@ -49,7 +50,8 @@ if (!(process.env.WEBPACK_ENV === 'production')) {
       comments: false
     }),
     new webpack.DefinePlugin({
-      'WEBPACK_ENV': '"production"'
+      'WEBPACK_ENV': '"production"',
+      'API_URL': '"//pewnywoz.pl:3333"'
     }),
     new CopyWebpackPlugin([{ from: './src/index.html' }], {})
   ];
