@@ -25,9 +25,9 @@ const config = {
       { test: /\.html/, loader: 'html?minimize=false' },
       { test: /\.styl$/, loader: 'css!stylus' },
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.(gif|png|jpe?g)$/i, loader: 'file?name=dist/images/[name].[ext]' },
-      { test: /\.woff2?$/, loader: 'url?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)$/, loader: 'file?name=dist/fonts/[name].[ext]' }
+      { test: /\.(gif|png|jpe?g)$/i, loader: 'file?name=images/[name].[ext]' },
+      { test: /\.woff2?$/, loader: 'url?name=fonts/[name].[ext]&limit=10000&mimetype=application/font-woff' },
+      { test: /\.(ttf|eot|svg)$/, loader: 'file?name=fonts/[name].[ext]' }
     ]
   }
 };
