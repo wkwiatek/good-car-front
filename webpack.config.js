@@ -37,7 +37,8 @@ if (!(process.env.WEBPACK_ENV === 'production')) {
   config.plugins = [
     new webpack.DefinePlugin({
       'WEBPACK_ENV': '"dev"',
-      'API_URL': '"http://localhost:3333"'
+      'API_URL': '"http://localhost:3333"',
+      'AMPLITUDE_API_KEY': '""'
     })
   ]
 } else {
@@ -51,7 +52,8 @@ if (!(process.env.WEBPACK_ENV === 'production')) {
     }),
     new webpack.DefinePlugin({
       'WEBPACK_ENV': '"production"',
-      'API_URL': '"//pewnywoz.pl:3333"'
+      'API_URL': '"//pewnywoz.pl:3333"',
+      'AMPLITUDE_API_KEY': '"559154678433ef416482337466cad4ca"'
     }),
     new CopyWebpackPlugin([{ from: './src/index.html' }], {})
   ];

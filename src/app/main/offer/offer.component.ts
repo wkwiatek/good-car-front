@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { IComment } from '../../shared/interfaces/comment.interface';
 import { IOffer } from '../../shared/interfaces/offer.interface';
+import { amplitude } from '../../../amplitude';
 
 @Component({
   selector: 'gc-offers',
@@ -84,7 +85,7 @@ export class OfferComponent implements OnDestroy {
       if (!offersService.currentOffer) {
         const id = params['id'];
         this.offersService.getOfferById(id).subscribe(
-          offer => this.offer = offer, 
+          offer => this.offer = offer,
           () => this.router.navigate(['/'])
         );
       }
@@ -103,6 +104,7 @@ export class OfferComponent implements OnDestroy {
 
   public onAddComment(newComment: IComment): void {
     newComment.date = new Date();
+    amplitude.logEvent('ADD_COMMENT', newComment);
     this.offer.comments.push(newComment);
     this.offersService.saveComment(this.offer._id, newComment).subscribe(response => {
       (<FormControl>this.addCommentForm.controls['body']).updateValue('');

@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { OffersService } from '../../shared/services/offers.service';
 
+import { amplitude } from '../../../amplitude';
+
 @Component({
   selector: 'gc-search-offer',
   directives: [
@@ -52,6 +54,7 @@ export class SearchOfferComponent {
   }
 
   public onSearch({ url }): void {
+    amplitude.logEvent('SEARCHED', { url });
     this.offersService.getOfferForUrl(url).subscribe(response => {
       this.offersService.currentOffer = response;
       (<FormControl>this.searchForm.controls['url']).updateValue('');
