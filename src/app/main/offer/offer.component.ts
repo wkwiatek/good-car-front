@@ -103,6 +103,9 @@ export class OfferComponent implements OnDestroy {
   }
 
   public onAddComment(newComment: IComment): void {
+    if (!this.addCommentForm.valid) {
+      return
+    }
     newComment.date = new Date();
     amplitude.logEvent('ADD_COMMENT', newComment);
     this.offer.comments.push(newComment);
