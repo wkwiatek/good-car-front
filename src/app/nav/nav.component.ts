@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'gc-nav',
   directives: ROUTER_DIRECTIVES,
+  providers: [AuthService],
   template: require('./nav.template.html'),
   styles: [`
     @import url(https://fonts.googleapis.com/css?family=Varela+Round);
@@ -35,4 +37,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     }
   `]
 })
-export class NavComponent {}
+export class NavComponent {
+  constructor(private auth: AuthService) {}
+}
