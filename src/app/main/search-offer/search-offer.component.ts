@@ -17,7 +17,7 @@ import { amplitude } from '../../../amplitude';
   ],
   template: `
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 m-t-3 m-b-2">
+      <div class="col-sm-8 offset-sm-2 m-t-3 m-b-2">
         <form
           [formGroup]="searchForm"
           (ngSubmit)="onSearch(searchForm.value)"
