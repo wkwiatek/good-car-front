@@ -28,6 +28,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
     "amplitude-js": "github:amplitude/Amplitude-Javascript",
+    "angular2-jwt": "^0.1.18",
     "es6-shim": "^0.35.0",
     "reflect-metadata": "^0.1.2",
     "rxjs": "5.0.0-beta.6",
